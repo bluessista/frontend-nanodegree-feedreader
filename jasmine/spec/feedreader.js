@@ -91,11 +91,11 @@ $(function() {
          * the content actually changes.
          */
         it('changes content if new feed topic is chosen', (done) => {
-            loadFeed(1, () => {
+            loadFeed(0, () => {
                 //Content of .feed before selecting a new topic
                 contentInitial = $('.feed').html();
                 
-                loadFeed(2, () => {
+                loadFeed(1, () => {
                 contentNew = $('.feed').html();
                 done();
                 });
