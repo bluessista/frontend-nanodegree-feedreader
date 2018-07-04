@@ -99,8 +99,9 @@ $(function() {
                 contentNew = $('.feed').html();
                 done();
                 });
+                expect(contentInitial).not.toBe(contentNew);
             });
-            expect(contentInitial).not.toBe(contentNew);
+            
         });
     });
 }());
