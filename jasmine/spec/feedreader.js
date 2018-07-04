@@ -87,21 +87,24 @@ $(function() {
     describe('New Feed Selection', () => {
         var contentInitial, contentNew;
 
-        /* when a new feed is loaded by the loadFeed function that 
-         * the content actually changes.
-         */
-        it('changes content if new feed topic is chosen', (done) => {
+        beforeEach((done) => {
             loadFeed(0, () => {
                 //Content of .feed before selecting a new topic
                 contentInitial = $('.feed').html();
                 
                 loadFeed(1, () => {
-                contentNew = $('.feed').html();
-                done();
+                    // Content of .feed after selecting the new topic
+                    contentNew = $('.feed').html();
+                    done();
                 });
-                expect(contentInitial).not.toBe(contentNew);
             });
-            
+        });
+
+        /* when a new feed is loaded by the loadFeed function that 
+         * the content actually changes.
+         */
+        it('changes content if new feed topic is chosen', () => {
+            expect(contentInitial).not.toBe(contentNew);
         });
     });
 }());
